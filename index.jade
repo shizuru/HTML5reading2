@@ -198,7 +198,7 @@ html
         h3 WAI-ARIA
         q Webサイト、特にWebアプリケーションのアクセシビリティを改善するための仕様
 
-      article
+      article.nobackground
         h3 ARIA ロールを使ってナビゲーションヒントを提示する
         iframe(width="560", height="315", src="http://www.youtube.com/embed/4d3oGKz6QgY", frameborder="0", allowfullscreen)
 
@@ -209,3 +209,45 @@ html
           li スクリーンリーダーが理解できる「スキップリンク」を提供する
           li ロール属性が使える
           li セマンティックですね
+
+      article
+        h3 ランドマークロール
+        table
+          tr
+            th ロール
+            th 目的
+          tr
+            td contentinfo
+            td コンテンツに閑する情報が存在する場所を示す
+          tr
+            td その他
+            td 本を参照
+
+         h4 使い方
+         pre.
+           <footer id="page_footer" role="contentinfo">
+             <p>&copy; 2010 awesomeCo.</p>
+           </footer>
+
+      article
+        h3 ドキュメントロール
+        table
+          tr
+            th ロール
+            th 目的
+          tr
+            td document
+            td アプリケーションのコンテンツではなくドキュメントのコンテンツを含んでいる領域
+          tr
+            td その他
+            td 本を参照
+
+         h4 使い方
+         pre.
+           <body role="document">
+         h4 フォールバック
+           p ロールをサポートしてないブラウザでは単に無視される
+
+      article.nobackground
+        h3 ブラウザはサポートしているのか？
+        iframe(src='http://www.google.com/support/chrome/bin/answer.py?answer=96831')
