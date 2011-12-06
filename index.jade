@@ -1,0 +1,211 @@
+!!! 5 
+//
+  Google HTML5 slide template
+  
+  Authors: Luke Mahé (code)
+           Marcin Wichary (code and design)
+           
+           Dominic Mazzoni (browser compatibility)
+           Charles Chen (ChromeVox support)
+  
+  URL: http://code.google.com/p/html5slides/
+
+html
+  head
+    title 第2回HTML5読書会
+    meta(charset="utf-8")
+    script(src="./slides.js")
+
+  body(style='display: none')
+    section(class="slides layout-regular template-default")  
+
+      article
+        h1 第2回HTML5読書会
+         br
+         |4,5章
+        p kzfm
+          br Dec 10, 2011
+
+      article
+        h3 前回のおさらいと今回の内容
+        ul
+          li HTML5はセマンティクス重視
+          li 見た目のほうはCSSに任せる
+          li 4章は見た目を良くするためのCSS3の入門的な内容
+          li 5章はセマンティクスとアクセシビリティの話題
+
+      article
+        h2 4章
+          br
+          | CSS3を使った<br>ユーザーインターフェースの改善 
+
+      article
+        h3 CSS3のセレクタとは何か</h3>
+        p セレクタとは、HTMLドキュメント内の要素を検索する際に指定するパターン
+        ul.build
+          li
+            dl
+              dt :nth-of-type
+              dd 特定のタイプのn番目の要素を全て検索
+          li
+            dl
+              dt :first-child 
+              dd 最初の子要素を検索
+          li
+            dl
+              dt :nth-child
+              dd 先頭から数えて指定された位置にある子要素を検索
+          li
+            dl
+              dt :last-child
+              dd 最後の子要素を検索 
+
+      article
+        h3 CSS3のセレクタ(続き)
+        ul.build
+          li
+            dl
+              dt :nth-last-child
+              dd 末尾から数えて指定された位置にある子要素を検索
+          li
+            dl
+              dt :first-of-type
+              dd 指定されたタイプの最初の要素を検索
+          li
+            dl
+              dt :last-of-type 
+              dd 指定されたタイプの最後の要素を検索
+          li
+            dl
+              dt 列のサポートと:after 
+              dd 後の事例を実際に触ったほうがわかりやすい
+          li
+            dl
+              dt メディアクエリ 
+              dd デバイスの画像解像度に応じてcssを切り替える（レスポンシブ・ウェブデザイン）
+
+      article.smaller
+        h3 nth-of-typeとnth-childの違い
+        h4 div p:nth-of-type(3){color:#f00;}
+        div
+          p 1番目のp
+          hr
+          p 2番目のp
+          p(style="color:#f00") 3番目のp
+        h4 div p:nth-child(3){color:#f00;}
+        div
+          p 1番目のp
+          hr
+          p(style="color:#f00") 2番目のp
+          p 3番目のp
+
+      article
+        h3 レスポンシブウェブデザイン
+        p
+          a(href="http://mediaqueri.es/") こういったあたり
+        p 
+          img(style="width: 600px", src="images/responsiveweb.png")
+        p 
+          a(href="http://responsivepx.com/") responsivepx
+          が地味に便利です
+
+      article.smaller
+        h3 擬似クラスを使ってテーブルのスタイルを設定する
+        table
+          tr
+            th Item
+            th Price
+            th Quantity
+            th Total
+          tr
+            td Coffee mug
+            td $10.00
+            td 5
+            td $50.00
+          tr
+            td Polo shirt
+            td $20.00
+            td 5
+            td $100.00
+          tr
+            td Red stapler
+            td $9.00
+            td 4
+            td $36.00
+          tr
+            td(colspan="3") Subtotal
+            td $186.00
+          tr
+            td(colspan="3") Shipping
+            td $12.00
+          tr
+            td(colspan="3") Total Due
+            td $198.00
+        p サンプルHTMLは
+          a(href="https://github.com/kzfm/HTML5reading2") Git
+          においておきました。
+        p または
+          a(href="http://pragprog.com/titles/bhh5/source_code") 書籍のサポートサイト
+          からダウンロードして下さい。
+
+      article
+        h2 本を見ながらテーブルを改善するタイム
+
+      article
+        h3 4章まとめ
+        ul
+          li CSS3つまりプレゼンテーション層でユーザーインターフェースの改善ができる
+          li モダンでないブラウザのためのフォールバックも考慮する
+          li ベンダープレフィックス
+          ul
+            li すべて書く
+            li 標準的なプロパティを最後に記述する
+      
+      article
+        h2 5章 
+          br
+          | アクセシビリティの向上
+      
+      article
+        h3 WAI-ARIAとは
+        p 
+          | WAI-ARIAとは、Web Accessibility Initiative-Accessible Rich
+          | Internet Applicationsの略で、W3Cが現在、勧告に向けて策定作業
+          | を進めているリッチなインターネットアプリケーションのアクセシ
+          | ビリティに関する仕様書のことです。
+        p
+          span.red JavaScriptやAjaxなどを使用した動的なコンテンツは、スクリーンリーダーやキーボード操作では利用できないことがあります。
+          WAI-ARIAは、そういった問題を解決すべく、W3CのProtocols and Formats ワーキンググループ (PFWG) において策定されています。
+        .source Source: WAI-ARIA（日本語訳）
+
+      article
+        h3 Screen Readerの説明
+        div#__ss_6738595(style="width:595px")
+          strong(style="display:block;margin:12px 0 4px")
+            a(href="http://www.slideshare.net/nishimotz/nishimotz-pycon2011jan", title="Nishimotz pycon2011jan", target="_blank") Nishimotz pycon2011jan
+          object#__sse6738595(width="595", height="497")
+            param(name="movie", value="http://static.slidesharecdn.com/swf/ssplayer2.swf?doc=nishimotz-pycon2011jan-110128162904-phpapp01&stripped_title=nishimotz-pycon2011jan&userName=nishimotz")
+            param(name="allowFullScreen", value="true")
+            param(name="allowScriptAccess", value="always")
+            param(name="wmode", value="transparent")
+            embed(name="__sse6738595", src="http://static.slidesharecdn.com/swf/ssplayer2.swf?doc=nishimotz-pycon2011jan-110128162904-phpapp01&stripped_title=nishimotz-pycon2011jan&userName=nishimotz", type="application/x-shockwave-flash", allowscriptaccess="always", allowfullscreen="true", wmode="transparent", width="595", height="497")
+
+      article.nobackground
+        h3 静岡だと三島のユニバーサルワークス
+        iframe(src='http://www.u-works.co.jp/services/accessibility')
+
+      article.fill
+        h3 WAI-ARIA
+        q Webサイト、特にWebアプリケーションのアクセシビリティを改善するための仕様
+
+      article
+        h3 ARIA ロールを使ってナビゲーションヒントを提示する
+        iframe(width="560", height="315", src="http://www.youtube.com/embed/4d3oGKz6QgY", frameborder="0", allowfullscreen)
+
+      article.larger
+        h3 ナビとかフッタとか毎度の読み上げうざい
+        ul.build
+          li どうしたらいいの？
+          li スクリーンリーダーが理解できる「スキップリンク」を提供する
+          li ロール属性が使える
+          li セマンティックですね
