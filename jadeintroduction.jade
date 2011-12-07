@@ -1,0 +1,71 @@
+!!! 5 
+html
+  head
+    title Jadeのススメ
+    meta(charset="utf-8")
+    script(src="./slides.js")
+
+  body(style='display: none')
+    section(class="slides layout-regular template-default")  
+
+      article
+        h1 Jadeのススメ
+        p kzfm
+          br Dec 10, 2011
+
+      article
+        h3 構造化web(死語？)
+        q デザインはCSSに丸投げして、HTMLerは意味だけ淡々と記述していけばいいんじゃない？
+        div.author kzfm 
+
+      article
+        h3 括弧は若干アレ
+        p 悟りを開きたいんか？ みたいな
+        img(src="http://mitpress.mit.edu/sicp/graphics/main-banner.gif")
+        pre.
+          <h1>Music links</h1>
+          <%
+          (cl-who:with-html-output (*standard-output*)
+            (loop for (link . title) in 
+              '(("http://zappa.com/" . "Frank Zappa")
+               ("http://marcusmiller.com/" . "Marcus Miller")
+               ("http://www.milesdavis.com/" . "Miles Davis"))
+               do (cl-who:htm (:a :href link
+                              (:b (cl-who:str title)))
+                             :br)))
+          %>
+
+      article
+        h3 括弧があるからネストしすぎるのだろう
+        p 夏に作ったXPath
+        pre.
+          /html/body/table[2]/tbody/tr/td[2]
+          /table/tbody/tr[2]/td/div/div/div/div/div[2]/form
+          /table/tbody/tr[2]/td[2]
+          /table/tbody/tr[7]/td/span[2]
+        p テーブル派なんだかdiv派なんだかわからん
+
+      article
+        h3 やっぱインデントだよねぇ 
+        img(src="http://www.python.org/community/logos/python-logo-master-v3-TM.png")
+        p というわけでインデントで表現するマークアップ言語としてJadeを紹介
+
+      article
+        h3 メリット
+        ul.build
+          li 読みやすく書きやすい
+          li インデントがタブでもスペースでもok
+          li html5モードがある
+          li テンプレートの継承ができる
+          li Emacsモードがある
+          li 現状、node,php,scala,ruby,pythonに対応
+
+      article
+        h3 デモ
+
+      article
+        h3 まとめ
+        ul.build
+          li Jadeを紹介しました
+          li 他にHamlとか
+          li CSSまわりだとStylusとかあるので追っかけてみるといいです

@@ -1,0 +1,19 @@
+<!DOCTYPE 5 ><html><head><title>Jadeのススメ</title><meta charset="utf-8"/><script src="./slides.js"></script></head><body style="display: none"><section class="slides layout-regular template-default"><article><h1>Jadeのススメ</h1><p>kzfm<br/></p></article><article><h3>構造化web(死語？)</h3><q>デザインはCSSに丸投げして、HTMLerは意味だけ淡々と記述していけばいいんじゃない？</q><div class="author">kzfm </div></article><article><h3>括弧は若干アレ</h3><p>悟りを開きたいんか？ みたいな</p><img src="http://mitpress.mit.edu/sicp/graphics/main-banner.gif"/><pre>&lt;h1&gt;Music links&lt;/h1&gt;
+&lt;%
+(cl-who:with-html-output (*standard-output*)
+  (loop for (link . title) in 
+    '((&quot;http://zappa.com/&quot; . &quot;Frank Zappa&quot;)
+     (&quot;http://marcusmiller.com/&quot; . &quot;Marcus Miller&quot;)
+     (&quot;http://www.milesdavis.com/&quot; . &quot;Miles Davis&quot;))
+     do (cl-who:htm (:a :href link
+                    (:b (cl-who:str title)))
+     :br)))
+
+
+%&gt;
+
+</pre></article><article><h3>括弧があるからネストしすぎるのだろう</h3><p>夏に作ったXPath</p><pre>/html/body/table[2]/tbody/tr/td[2]
+/table/tbody/tr[2]/td/div/div/div/div/div[2]/form
+/table/tbody/tr[2]/td[2]
+/table/tbody/tr[7]/td/span[2]
+</pre><p>テーブル派なんだかdiv派なんだかわからん</p></article><article><h3>やっぱインデントだよねぇ </h3><img src="http://www.python.org/community/logos/python-logo-master-v3-TM.png"/><p>というわけでインデントで表現するマークアップ言語としてJadeを紹介</p></article><article><h3>メリット</h3><ul class="build"><li>読みやすく書きやすい</li><li>インデントがタブでもスペースでもok</li><li>html5モードがある</li><li>テンプレートの継承ができる</li><li>Emacsモードがある</li><li>現状、node,php,scala,ruby,pythonに対応</li></ul></article><article><h3>デモ</h3></article><article><h3>まとめ</h3><ul class="build"><li>Jadeを紹介しました</li><li>他にHamlとか</li><li>CSSまわりだとStylusとかあるので追っかけてみるといいです</li></ul></article></section></body></html>
