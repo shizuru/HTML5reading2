@@ -198,6 +198,17 @@ html
         h3 WAI-ARIA
         q Webサイト、特にWebアプリケーションのアクセシビリティを改善するための仕様
 
+      article
+        h3 アクセシビリティ技術
+        ul.build
+          li role属性: 要素の役割を示す
+          li aria-live属性: 自動的に更新される領域(Ajaxなど)を示す
+          li aria-atomic属性: 読み取りの範囲を示す
+
+      article.nobackground
+        h3 ブラウザはサポートしているのか？(chromeの場合)
+        iframe(src='http://www.google.com/support/chrome/bin/answer.py?answer=96831')
+
       article.nobackground
         h3 ARIA ロールを使ってナビゲーションヒントを提示する
         iframe(width="560", height="315", src="http://www.youtube.com/embed/4d3oGKz6QgY", frameborder="0", allowfullscreen)
@@ -248,6 +259,56 @@ html
          h4 フォールバック
            p ロールをサポートしてないブラウザでは単に無視される
 
-      article.nobackground
-        h3 ブラウザはサポートしているのか？
-        iframe(src='http://www.google.com/support/chrome/bin/answer.py?answer=96831')
+      article
+        h3 アクセシブルで更新可能な領域を作成
+        p alia-liveとalia-atomicを指定する
+        pre.
+          <section id="content" 
+            role="document" alia-live="assertive" aria-atomic="true">
+
+        p alia-liveが
+          span.green assertive
+          だと、読み上げの途中でも更新された部分を読み始めるが
+          span.green polite
+          だと、読み終わりを待つ
+
+        p aria-atomic=trueだと変更された領域のコンテンツ全体を読み上げるがfalseの場合は変化したノードだけ読み上げる
+
+      article.smaller.nobackground
+        h3 application.js
+        p 説明いる？
+        pre.
+          document.createElement("header");
+          document.createElement("footer");
+          document.createElement("section");
+          document.createElement("aside");
+          document.createElement("article");
+          document.createElement("nav");          
+          $(function(){
+            $("#services, #about, #contact").hide().addClass("hidden"); 
+            $("#welcome").addClass("visible");
+            
+            $("nav ul").click(function(event){ 
+              target = $(event.target);
+              if(target.is("a")){    
+                event.preventDefault();      
+                if ( $(target.attr("href")).hasClass("hidden") ){   
+                  $(".visible").removeClass("visible")
+                    .addClass("hidden")
+                    .hide();
+                  $(target.attr("href"))
+                     .removeClass("hidden")
+                     .addClass("visible")
+                     .show();};};});});
+
+      article
+        h3 HTML5とWAI-ARIAの今後
+        p よりアクセシブルなWebへ
+        p google readerとかのRSS読み上げてくれると車運転しながらRSSチェック出来るので嬉しいんだけど
+
+      article
+        h3 おわり
+        p これで第一部は終了
+        p
+          img(src="http://ecx.images-amazon.com/images/I/51QCM4Kuz3L._SL160_.jpg", border="0", alt="ProductName")
+        p 第二部はオーディオ、ビデオ関連ですね
